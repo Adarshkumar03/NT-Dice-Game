@@ -29,6 +29,12 @@ const p2Choice = document.getElementById("p2-choice");
 const skipButton1 = document.getElementById("p1-skip");
 const skipButton2 = document.getElementById("p2-skip");
 
+const endGame = (winner) => {       
+    alert(`Game Over! ${winner} wins!`);
+    location.reload();
+}
+
+
 rollDiceButton1.addEventListener("click", () => {
     const randomNumber = Math.floor(Math.random() * 6) + 1;
     p1cScore = randomNumber == 1 ? 0 : p1cScore + randomNumber;
@@ -50,7 +56,10 @@ saveButton1.addEventListener("click", () => {
     p1sCount.textContent = p1sScore;
     p1cScore = 0;
     p1cCount.textContent = p1cScore;
-    switchTurn();
+    if(p1sScore >= 100)
+        endGame("player 1")
+    else
+        switchTurn();
 });
 
 saveButton2.addEventListener("click", () => {
@@ -58,7 +67,10 @@ saveButton2.addEventListener("click", () => {
     p2sCount.textContent = p2sScore;
     p2cScore = 0;
     p2cCount.textContent = p2cScore;
-    switchTurn();
+    if(p2sScore >= 100)
+        endGame("player 2");
+    else    
+        switchTurn();
 });
 
 skipButton1.addEventListener("click", () => {
@@ -86,6 +98,8 @@ const switchTurn = () => {
     p1Choice.classList.add("hidden");
     p2Choice.classList.add("hidden");
 }
+
+
 
 playerTwoContainer.classList.add("inactive");
 p1Choice.classList.add("hidden");

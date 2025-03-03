@@ -1,13 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <h1>DICE!!!!</h1>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- <div id="hero">
+      <h1>DICE Game!!!!</h1>
+      <label>
+        Enter player 1 name
+        <input type="text" id="player1" required/>
+      </label>
+      <label>
+        Enter player 2 name
+        <input type="text" id="player2" required/>
+      </label>
+      <a href="#container">Start Game</a>
+    </div> -->
+
+    <div id="container">
+      <div class="player" id="one">
+        <h3>Player 1</h3>
+        <p class="score">CurrentScore <span id="p1cCount">0</span></p>
+        <p class = "score">Saved Score <span id="p1sCount">0</span></p>
+        <button id="p1-dice">Roll Dice</button>
+        <div id="p1Choice">
+            <button id="skip-p1">skip</button>
+            <button id="save-p1">Save Score</button>
+        </div>
+        
+      </div>
+      <p id="dice"></p>
+      <div class="player two">
+        <h3>Player 2</h3>
+        <p class="score">CurrentScore <span id="p2cCount">0</span></p>
+        <p class="score">Saved Score <span id="p2sCount">0</span></p>
+        <button id="dice-roll-p2">Roll Dice</button>
+        <div id="p2Choice">
+            <button id="skip-p2">skip</button>
+            <button id="save-p2">Save Score</button>
+        </div>
+      </div>
+    </div>
+    
+    
+    
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

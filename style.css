@@ -13,3 +13,13 @@ h1{
 .player{
     margin: 0 10px;
 }
+
+.inactive{
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.hidden{
+    display: none;
+}

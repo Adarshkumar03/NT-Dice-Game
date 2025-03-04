@@ -12,7 +12,9 @@ let p2cScore;
 let p2sScore;
 
 const init = () => {
-  player1Turn = true;   
+  player1Turn = true;
+  p1Name = "Player 1";
+  p2Name = "Player 2";   
   p1cScore = 0;
   p1sScore = 0;
   p2cScore = 0;
@@ -57,7 +59,7 @@ restart.addEventListener("click", () => {
 
 const endGame = (winner) => {
   document.getElementById("winner").scrollIntoView({ behavior: "smooth" });
-  winnerName.textContent = `👑All hail ${winner}, the ultimate dice master! 👑`;
+  winnerName.textContent = `👑All hail ${winner?winner:"Player"}, the ultimate dice master! 👑`;
 };
 
 form.addEventListener("submit", (e) => {
@@ -179,3 +181,5 @@ playerTwoContainer.classList.add("inactive");
 p1Choice.classList.add("hidden");
 p2Choice.classList.add("hidden");
 rollDiceButton2.disabled = true;
+
+init();

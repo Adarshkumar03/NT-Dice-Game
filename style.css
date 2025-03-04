@@ -116,13 +116,33 @@ input {
 .player h3 {
   font-size: 1.5rem;
   font-weight: 700;
-  margin-bottom: 0.625rem;
+  margin-bottom: 0.875rem;
 }
 
 .score {
   font-size: 1.2rem;
-  font-weight: 500;
+  font-weight: 600;
   margin: 0.5rem 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.sv {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: white;
+  background: #136F63;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.3125rem;
+}
+
+
+.curr {
+  font-weight: 500;
+  color: white;
+  background: #639FAB;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.3125rem;
 }
 
 @keyframes rollAnimation {

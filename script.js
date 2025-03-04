@@ -51,7 +51,7 @@ restart.addEventListener("click", () => {
 
 const endGame = (winner) => {       
     document.getElementById("winner").scrollIntoView({behavior: "smooth"});
-    winnerName.textContent = winner;
+    winnerName.textContent = `All hail ${winner}, the ultimate dice master! 👑`;
 }
 
 form.addEventListener("submit", (e) => {
@@ -65,7 +65,7 @@ form.addEventListener("submit", (e) => {
 
 
 rollDiceButton1.addEventListener("click", () => {
-    const randomNumber = Math.floor(Math.random() * 6) + 1;
+    const randomNumber = Math.floor(Math.random() * 20) + 1;
     p1cScore = randomNumber == 1 ? 0 : p1cScore + randomNumber;
     p1cCount.textContent = p1cScore;
     p1Choice.classList.remove("hidden");
@@ -73,7 +73,7 @@ rollDiceButton1.addEventListener("click", () => {
 });
 
 rollDiceButton2.addEventListener("click", () => {
-    const randomNumber = Math.floor(Math.random() * 6) + 1;
+    const randomNumber = Math.floor(Math.random() * 20) + 1;
     p2cScore = randomNumber == 1 ? 0 : p2cScore + randomNumber;
     p2cCount.textContent = p2cScore;
     p2Choice.classList.remove("hidden");

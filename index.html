@@ -4,46 +4,56 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- <div id="hero">
+    <div id="hero">
       <h1>DICE Game!!!!</h1>
-      <label>
-        Enter player 1 name
-        <input type="text" id="player1" required/>
-      </label>
-      <label>
-        Enter player 2 name
-        <input type="text" id="player2" required/>
-      </label>
-      <a href="#container">Start Game</a>
-    </div> -->
+      <form id="form">
+        <label>
+          Enter player 1 name
+          <input type="text" id="player1" required />
+        </label>
+        <label>
+          Enter player 2 name
+          <input type="text" id="player2" required />
+        </label>
+        <button type="submit">Start game</button>
+      </form>
+    </div>
 
     <div id="container">
       <div class="player" id="one">
-        <h3>Player 1</h3>
+        <h3 id="p1-name">Player 1</h3>
         <p class="score">CurrentScore <span id="p1-cCount">0</span></p>
-        <p class = "score">Saved Score <span id="p1-sCount">0</span></p>
+        <p class="score">Saved Score <span id="p1-sCount">0</span></p>
         <button id="p1-dice">Roll Dice</button>
         <div id="p1-choice">
-            <button id="p1-skip">skip</button>
-            <button id="p1-save">Save Score</button>
+          <button id="p1-skip">skip</button>
+          <button id="p1-save">Save Score</button>
         </div>
-        
       </div>
       <p id="dice"></p>
       <div class="player" id="two">
-        <h3>Player 2</h3>
+        <h3 id="p2-name">Player 2</h3>
         <p class="score">CurrentScore <span id="p2-cCount">0</span></p>
         <p class="score">Saved Score <span id="p2-sCount">0</span></p>
         <button id="p2-dice">Roll Dice</button>
         <div id="p2-choice">
-            <button id="p2-skip">skip</button>
-            <button id="p2-save">Save Score</button>
+          <button id="p2-skip">skip</button>
+          <button id="p2-save">Save Score</button>
         </div>
       </div>
-      <h1 id="winner"></h1>
+    </div>
+    <div id="winner">
+      <h1 id="winner-name"></h1>
+      <button id="restart">Restart</button>
     </div>
     <script src="script.js"></script>
   </body>

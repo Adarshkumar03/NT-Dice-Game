@@ -1,5 +1,3 @@
-console.log("Script is running!!");
-
 let player1Turn = true;
 
 let p1Name;
@@ -59,7 +57,7 @@ restart.addEventListener("click", () => {
 
 const endGame = (winner) => {
   document.getElementById("winner").scrollIntoView({ behavior: "smooth" });
-  winnerName.textContent = `👑All hail ${winner?winner:"Player"}, the ultimate dice master! 👑`;
+  winnerName.textContent = `👑All hail ${winner?winner:"Player"}, the ultimate dice master!👑`;
 };
 
 form.addEventListener("submit", (e) => {

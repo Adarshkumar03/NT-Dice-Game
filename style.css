@@ -114,7 +114,7 @@ input {
 }
 
 .player h3 {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-weight: 700;
   margin-bottom: 0.875rem;
 }
@@ -198,7 +198,7 @@ button {
   padding: 0.625rem 0.9375rem;
   font-size: 1rem;
   font-weight: 600;
-  border-radius: 0.3125rem;
+  border-radius: 0.625rem;
   cursor: pointer;
   transition: 0.3s ease-in-out;
 }
@@ -215,14 +215,14 @@ button:hover {
   gap: 0.625rem;
 }
 
-#p1-skip,
-#p2-skip {
-  background: #ff75a0;
-}
-
 #p1-save,
 #p2-save {
-  background: #614385;
+  background: #136F63;
+}
+
+#p1-save:hover,
+#p2-save:hover {
+  background: #0f4e47;
 }
 
 .hidden {

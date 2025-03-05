@@ -1,4 +1,4 @@
-let player1Turn = true;
+let player1Turn;
 
 let p1Name;
 let p2Name;
@@ -12,7 +12,7 @@ let p2sScore;
 const init = () => {
   player1Turn = true;
   p1Name = "Player 1";
-  p2Name = "Player 2";   
+  p2Name = "Player 2";
   p1cScore = 0;
   p1sScore = 0;
   p2cScore = 0;
@@ -57,7 +57,9 @@ restart.addEventListener("click", () => {
 
 const endGame = (winner) => {
   document.getElementById("winner").scrollIntoView({ behavior: "smooth" });
-  winnerName.textContent = `👑All hail ${winner?winner:"Player"}, the ultimate dice master!👑`;
+  winnerName.textContent = `👑All hail ${
+    winner ? winner : "Player"
+  }, the ultimate dice master!👑`;
 };
 
 form.addEventListener("submit", (e) => {
@@ -72,14 +74,14 @@ form.addEventListener("submit", (e) => {
 
 function rollDice() {
   const randomNumber = Math.floor(Math.random() * 6) + 1;
-  
+
   dice.style.animation = "rollAnimation 0.5s ease-in-out";
-  
+
   setTimeout(() => {
     updateDiceFace(randomNumber);
     dice.style.animation = "";
   }, 400);
-  
+
   return randomNumber;
 }
 
@@ -95,7 +97,7 @@ function updateDiceFace(number) {
     6: [0, 2, 3, 5, 6, 8],
   };
 
-  pipPositions[number].forEach(position => {
+  pipPositions[number].forEach((position) => {
     const pip = document.createElement("div");
     pip.classList.add("pip");
     dice.appendChild(pip);
@@ -109,22 +111,30 @@ function updateDiceFace(number) {
 
 rollDiceButton1.addEventListener("click", () => {
   const randomNumber = rollDice();
-  p1cScore = randomNumber === 1 ? 0 : p1cScore + randomNumber;
-  p1cCount.textContent = p1cScore;
-  p1Choice.classList.remove("hidden");
-  rollDiceButton1.disabled = true;
-  rollDiceButton1.style.cursor = "not-allowed";
-  rollDiceButton1.style.opacity = 0.5;
+  if (randomNumber === 1) {
+    p1cScore = 0;
+    p1cCount.textContent = p1cScore;
+    switchTurn();
+    return;
+  } else {
+    p1cScore = p1cScore + randomNumber;
+    p1cCount.textContent = p1cScore;
+    p1Choice.classList.remove("hidden");
+  }
 });
 
 rollDiceButton2.addEventListener("click", () => {
   const randomNumber = rollDice();
-  p2cScore = randomNumber == 1 ? 0 : p2cScore + randomNumber;
-  p2cCount.textContent = p2cScore;
-  p2Choice.classList.remove("hidden");
-  rollDiceButton2.disabled = true;
-  rollDiceButton2.style.cursor = "not-allowed";
-  rollDiceButton2.style.opacity = 0.5;
+  if (randomNumber === 1) {
+    p2cScore = 0;
+    p2cCount.textContent = p2cScore;
+    switchTurn();
+    return;
+  } else {
+    p2cScore = p2cScore + randomNumber;
+    p2cCount.textContent = p2cScore;
+    p2Choice.classList.remove("hidden");
+  }
 });
 
 saveButton1.addEventListener("click", () => {
@@ -134,7 +144,6 @@ saveButton1.addEventListener("click", () => {
   p1cCount.textContent = p1cScore;
   if (p1sScore >= 100) endGame(p1Name);
   else switchTurn();
-
 });
 
 saveButton2.addEventListener("click", () => {
@@ -144,14 +153,6 @@ saveButton2.addEventListener("click", () => {
   p2cCount.textContent = p2cScore;
   if (p2sScore >= 100) endGame(p2Name);
   else switchTurn();
-});
-
-skipButton1.addEventListener("click", () => {
-  switchTurn();
-});
-
-skipButton2.addEventListener("click", () => {
-  switchTurn();
 });
 
 const switchTurn = () => {
